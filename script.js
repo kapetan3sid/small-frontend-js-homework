@@ -4,11 +4,11 @@
 
  // create variable that will store remaining attempts
 let attemptRemaining = 20;
+let msg;
 
 // create logic behind checking if the number is correct
 document.querySelector('.check').addEventListener('click', function(){
     const guess = Number(document.querySelector('.guess').value);
-    let msg;
 
     if (guess === randao) {
         msg = 'Correct Number!';
