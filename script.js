@@ -27,3 +27,4 @@ document.querySelector('.check').addEventListener('click', function(){
     document.querySelector('.message').textContent = msg;
     document.querySelector('.score').textContent = attemptRemaining;
 });
+
