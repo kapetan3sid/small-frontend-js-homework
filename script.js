@@ -1,29 +1,29 @@
 'use strict';
 // generate random number between 1 and 20
  const randao = Math.trunc(Math.random() * 20) + 1;
- document.querySelector('.number').textContent = randao;
-// create variable that will store remaining attempts
+
+ // create variable that will store remaining attempts
 let attemptRemaining = 20;
+
 // create logic behind checking if the number is correct
 document.querySelector('.check').addEventListener('click', function(){
     const guess = Number(document.querySelector('.guess').value);
+    let msg;
+
     if (guess === randao) {
-        document.querySelector('.message').textContent = 'Corrent Number!';
-        attemptRemaining = attemptRemaining - 1;
-        document.querySelector('.score').textContent = attemptRemaining;
+        msg = 'Correct Number!';
+        document.querySelector('.number').textContent = randao;
     } else if (attemptRemaining > 1) {
         if (guess < randao) {
-            document.querySelector('.message').textContent = 'Number too low!';
-            attemptRemaining = attemptRemaining - 1;
-            document.querySelector('.score').textContent = attemptRemaining;
+            msg = 'Number too low!';
         } else if (guess > randao) {
-            document.querySelector('.message').textContent = 'Number too high!';
-            attemptRemaining = attemptRemaining - 1;
-            document.querySelector('.score').textContent = attemptRemaining;  
+            msg = 'Number too high!';
         }
     } else if (attemptRemaining > 0) {
-        document.querySelector('.message').textContent = 'The End!';
-        attemptRemaining = attemptRemaining - 1;
-        document.querySelector('.score').textContent = attemptRemaining;   
+        msg = 'The End!';   
     };
+
+    attemptRemaining = attemptRemaining - 1;
+    document.querySelector('.message').textContent = msg;
+    document.querySelector('.score').textContent = attemptRemaining;
 });
