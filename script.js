@@ -5,16 +5,24 @@
  // create variable that will store remaining attempts
 let attemptRemaining = 20;
 let msg;
+let highScore = 0;
 
 // create logic behind checking if the number is correct
 document.querySelector('.check').addEventListener('click', function(){
     const guess = Number(document.querySelector('.guess').value);
+    attemptRemaining = attemptRemaining - 1;
 
     if (guess === randao) {
         msg = 'Correct Number!';
         document.querySelector('.number').textContent = randao;
         document.querySelector('body').style.backgroundColor = '#60b347';
         document.querySelector('.number').style.width = '30rem';
+// check highscore
+        if (highScore <= attemptRemaining) {
+            highScore = attemptRemaining;
+            document.querySelector('.highscore').textContent = highScore;
+        };
+
     } else if (!guess) {
         msg = 'No Number!';
     } else if (attemptRemaining > 1) {
@@ -27,7 +35,6 @@ document.querySelector('.check').addEventListener('click', function(){
         msg = 'The End!';   
     };
 
-    attemptRemaining = attemptRemaining - 1;
     document.querySelector('.message').textContent = msg;
     document.querySelector('.score').textContent = attemptRemaining;
 });
