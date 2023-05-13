@@ -16,7 +16,9 @@ score1.textContent = 0;
 let dice = document.querySelector('.dice')
 dice.classList.add('hidden');
 
+const playerScores = [0, 0];
 let currentScore = 0;
+let playerNum = 0;
 
 //rolling dice function
 bntRoll.addEventListener('click', function() {
@@ -26,6 +28,15 @@ bntRoll.addEventListener('click', function() {
 
     if (diceNum != 1) {
         currentScore = currentScore + diceNum;
-        currentScore0.textContent = currentScore;
+        document.getElementById(`current--${playerNum}`).textContent = currentScore;
+    } else {
+        document.getElementById(`current--${playerNum}`).textContent = 0;
+        if (playerNum === 0) {
+            playerNum = 1;
+        } else {
+            playerNum = 0; 
+        }
+        currentScore = 0;
+
     }
 });
