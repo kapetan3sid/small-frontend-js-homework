@@ -58,7 +58,7 @@ bntHold.addEventListener('click', function() {
         score0.textContent = hold0;
         playerNum = 1;
         if (hold0 >= 20) {
-            playing = false;
+            gameRunning = false;
             document.querySelector('.player--0').classList.add('player--winner');
             document.querySelector('.player--0').classList.remove('player--active');
             dice.classList.add('hidden');
@@ -68,7 +68,7 @@ bntHold.addEventListener('click', function() {
         score1.textContent = hold1;
         playerNum = 0;
         if (hold1 >= 20) {
-            playing = false;
+            gameRunning = false;
             document.querySelector('.player--1').classList.add('player--winner');
             document.querySelector('.player--1').classList.remove('player--active');
             dice.classList.add('hidden');
